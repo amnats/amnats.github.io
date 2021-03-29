@@ -25,14 +25,14 @@ function init() {
   document.addEventListener('touchmove', animateThrottle);
 }
 
-let currRotation = 5;
+let currRotation = 0;
 
 function animate() {
   const images = document.querySelectorAll('#img-wrapper>img');
   images.forEach((img) => {
-    img.style.transform = `rotate3d(0, 1, 0, -${currRotation + 5}deg)`
+    img.style.transform = `rotate3d(0, 1, 0, -${currRotation}deg)`
   });
-  currRotation += 10;
+  currRotation += 5;
 }
 
 function animateThrottle() {
