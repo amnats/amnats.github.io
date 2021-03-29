@@ -21,27 +21,29 @@ function init() {
     imgWrapper.appendChild(newImg);
   }
 
-  document.addEventListener('wheel', (e) => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        animate();
-        ticking = false;
-      });
-
-      ticking.true;
-    }
-  });
+  document.addEventListener('wheel', animateThrottle);
+  document.addEventListener('touchmove', animateThrottle);
 }
 
 let currRotation = 5;
 
 function animate() {
   const images = document.querySelectorAll('#img-wrapper>img');
-  images.forEach((img, key) => {
-    const imgNum = key + 1;
+  images.forEach((img) => {
     img.style.transform = `rotate3d(0, 1, 0, -${currRotation + 5}deg)`
   });
   currRotation += 10;
+}
+
+function animateThrottle() {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      animate();
+      ticking = false;
+    });
+
+    ticking.true;
+  }
 }
 
 init();
