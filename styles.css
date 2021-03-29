@@ -1,0 +1,16 @@
+h1 {
+  text-align: center;
+}
+
+#img-wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#img-wrapper>img {
+  position: absolute;
+  overflow: hidden;
+
+  width: 50%;
+  height: auto;
+}
